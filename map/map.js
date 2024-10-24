@@ -1,3 +1,7 @@
+const script = document.createElement("script");
+script.src = "http://dapi.kakao.com/v2/maps/sdk.js?appkey=90b24e0900cb98209b67e397b9d8a8e6&autoload=false&libraries=clusterer,services&";
+
+
 getLALOInfo: async (req, res) => {
   const placeAddress = req.body.placeAddress;
   const url =
