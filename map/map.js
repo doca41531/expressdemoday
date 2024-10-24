@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     infowindow.open(map, marker);
 
-    var iwContent = '<img src="./img/경포호.png"></img>',
+    var iwContent = '<img src="./img/385a1882f066f7d3.png"></img>',
       iwRemoveable = true;
 
     var infowindow = new kakao.maps.InfoWindow({
