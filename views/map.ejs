@@ -8,6 +8,10 @@
         margin: 0;
         padding: 0;
       }
+      .tmqwlimg{
+        width: 250px;
+        height: 280px;
+      }
     </style>
   </head>
   <body>
@@ -42,13 +46,34 @@
         marker = new kakao.maps.Marker({
           position: new kakao.maps.LatLng(data[0].y, data[0].x),
         });
-
+        
         markerInfo = new kakao.maps.InfoWindow({
           position: new kakao.maps.LatLng(data[0].y, data[0].x),
           content: '<div style="padding:5px;">마커를 클릭해주세요</div>',
         });
-        var iwContent = '<img src="/img/경포호.png"></img>', iwRemoveable = true;
-
+        var iwContent;
+        console.log(data[0]["place_name"]);
+        switch (data[0]["place_name"]) {
+          case "운곡람사르습지 생태공원":
+            iwContent = '<img class="tmqwlimg" src="/img/운곡습지.png"></img>'
+            break;
+          case "경포호":
+            iwContent = '<img class="tmqwlimg" src="/img/경포호.png"></img>'
+            break;
+          case "한반도습지":
+            iwContent = '<img class="tmqwlimg" src="/img/영월습지.png"></img>'
+            break;
+          case "장도습지":
+            iwContent = '<img class="tmqwlimg" src="/img/장도습지.png"></img>'
+            break;
+          case "물장오리(물장올)":
+            iwContent = '<img class="tmqwlimg" src="/img/물장오리.png"></img>'
+            break;
+        }
+        // iwContent = '<img src="/img/경포호.png"></img>'
+        console.log(iwContent);
+        var iwRemoveable = true;
+        map.setMapTypeId(kakao.maps.MapTypeId.HYBRID);
         var infowindow = new kakao.maps.InfoWindow({
           content: iwContent,
           removable: iwRemoveable,
